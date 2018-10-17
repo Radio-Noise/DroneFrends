@@ -1,5 +1,6 @@
 package com.dji.GSDemo.GoogleMap;
 
+//importを行う、機能追加を行う場合はこれらの下に入力すること
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
@@ -54,6 +55,10 @@ import dji.sdk.mission.waypoint.WaypointMissionOperatorListener;
 import dji.sdk.products.Aircraft;
 import dji.sdk.sdkmanager.DJISDKManager;
 import dji.sdk.useraccount.UserAccountManager;
+
+//ここにimportを追加してください。
+
+//これより下はimportを入力しないでください。
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener, GoogleMap.OnMapClickListener, OnMapReadyCallback {
 
@@ -332,7 +337,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //Create MarkerOptions object
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(point);
-        //ピンの色変更
+        //ピンの色変更、これによりピンの識別が可能
         if(colortype == 0) {
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
             colortype++;
@@ -364,7 +369,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
             colortype = 0;
         }
-        //pincolor end
+        //ピンの色変更終了
 
         Marker marker = gMap.addMarker(markerOptions);
         mMarkers.put(mMarkers.size(), marker);
@@ -614,6 +619,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             setUpMap();
         }
 
+        //v,v1を変更すると初期の位置を変更可能。
         LatLng shenzhen = new LatLng(34.053147, 134.563894);
         gMap.addMarker(new MarkerOptions().position(shenzhen).title("Marker in Shenzhen"));
         gMap.moveCamera(CameraUpdateFactory.newLatLng(shenzhen));
