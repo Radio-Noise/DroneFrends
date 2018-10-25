@@ -452,12 +452,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                //ここで速度の変更が可能、標準は3.0,5.0,10,0
                 if (checkedId == R.id.lowSpeed){
-                    mSpeed = 3.0f;
+                    mSpeed = 1.0f;
                 } else if (checkedId == R.id.MidSpeed){
-                    mSpeed = 5.0f;
+                    mSpeed = 2.0f;
                 } else if (checkedId == R.id.HighSpeed){
-                    mSpeed = 10.0f;
+                    mSpeed = 3.0f;
                 }
             }
 
@@ -619,7 +621,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             setUpMap();
         }
 
-        //v,v1を変更すると初期の位置を変更可能。
+        //v,v1を変更すると初期の位置を変更可能1、緯度、経度の順番
         LatLng shenzhen = new LatLng(34.053147, 134.563894);
         gMap.addMarker(new MarkerOptions().position(shenzhen).title("Marker in Shenzhen"));
         gMap.moveCamera(CameraUpdateFactory.newLatLng(shenzhen));
